@@ -1,8 +1,19 @@
-body {
+header{
+    text-align: left;
+    background-color: white;
 }
 
-h1 {
+form{
+    text-align: left;
 }
 
-p {
+body{
+    font-size: medium;
+    text-align: left;
+}
+
+p{
+    font-size: large;
+    line-height: 50px;
+    text-align: center;
 }
