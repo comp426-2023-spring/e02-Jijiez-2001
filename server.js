@@ -7,6 +7,7 @@ const require = createRequire(import.meta.url);
 // dependencies.
 // Load minimist for command line argument parsing
 // https://www.npmjs.com/package/minimist
+//test
 const minimist = require("minimist");
 // Parse our command line arguments
 const args = minimist(process.argv.slice(2));
@@ -116,4 +117,3 @@ process.on("SIGINT", () => {
     }
   });
 });
-//test connection
