@@ -7,9 +7,9 @@ const require = createRequire(import.meta.url);
 // dependencies.
 // Load minimist for command line argument parsing
 // https://www.npmjs.com/package/minimist
-//test
 const minimist = require("minimist");
 // Parse our command line arguments
+//test
 const args = minimist(process.argv.slice(2));
 // Are we debugging or testing?
 // If so, then let's look at our command line arguments just to see what is in there
