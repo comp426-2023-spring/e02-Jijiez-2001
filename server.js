@@ -18,6 +18,7 @@ if (args.debug) {
   console.info(args);
 }
 // Did we call for help?
+//test
 if (args.h || args.help) {
   console.log(`
 usage: node server.js --port=5000
