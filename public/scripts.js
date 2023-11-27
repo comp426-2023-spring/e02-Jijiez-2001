@@ -2,25 +2,6 @@
 // check out the coin-server example from a previous COMP 426 semester.
 // https://github.com/jdmar3/coinserver
 
-// Define the rules for RPS and RPSLS
-const rpsRules =
-  "Rules for Rock Paper Scissors:\n" +
-  "\n" +
-  "  - Scissors CUTS Paper\n" +
-  "  - Paper COVERS Rock\n" +
-  "  - Rock CRUSHES Scissors\n";
-const rpslsRules = `Rules for the Lizard-Spock Expansion of Rock Paper Scissors:\n\n',
-' - Scissors CUTS Paper\n',
-' - Paper COVERS Rock\n',
-' - Rock SMOOSHES Lizard\n',
-' - Lizard POISONS Spock\n',
-' - Spock SMASHES Scissors\n',
-' - Scissors DECAPITATES Lizard\n',
-' - Lizard EATS Paper\n',
-' - Paper DISPROVES Spock\n',
-' - Spock VAPORIZES Rock\n',
-' - Rock CRUSHES Scissors`;
-
 // This function will be called to update the available moves based on the selected game type
 function updateMoveOptions() {
   const gameType = getSelectedGameType();
