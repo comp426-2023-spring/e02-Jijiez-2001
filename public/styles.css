@@ -1,19 +1,83 @@
-header{
-    text-align: left;
-    background-color: white;
+body {
+  line-height: 1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e7eff6;
+  color: #333;
+  padding: 20px;
 }
 
-form{
-    text-align: left;
+header {
+  background-color: #00334e;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
 }
 
-body{
-    font-size: medium;
-    text-align: left;
+header h1 {
+  margin-bottom: 20px;
 }
 
-p{
-    font-size: large;
-    line-height: 50px;
-    text-align: center;
+main {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #007acc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005792;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #007acc;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #005792;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #00334e;
+  color: white;
+}
+
+footer a {
+  color: #29a9df;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }

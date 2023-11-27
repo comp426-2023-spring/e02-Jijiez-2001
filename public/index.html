@@ -1,298 +1,66 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title></title>
-    <meta name="Generator" content="Cocoa HTML Writer" />
-    <meta name="CocoaVersion" content="2299.5" />
-    <style type="text/css">
-      p.p1 {
-        margin: 0px 0px 0px 0px;
-        font: 12px Times;
-        -webkit-text-stroke: #000000;
-      }
-      p.p2 {
-        margin: 0px 0px 0px 0px;
-        font: 12px Times;
-        -webkit-text-stroke: #000000;
-        min-height: 14px;
-      }
-      span.s1 {
-        font-kerning: none;
-      }
-      span.Apple-tab-span {
-        white-space: pre;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-Paper-Scissors Game</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <p class="p1"><span class="s1">&lt;html&gt;</span></p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-converted-space"> </span>&lt;head&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        >&lt;title&gt;Rock&lt;/title&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span>&lt;link href="'./styles.css"
-        rel="stylesheet"&gt;<span class="Apple-converted-space"> </span></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span>&lt;script type="text/javascript"
-        src="/jquery/jquery-3.6.0.min.js"&gt;&lt;/script&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span>&lt;script
-        src="./scripts.js"&gt;&lt;/script&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        >&lt;/head&gt;<span class="Apple-converted-space"> </span></span
-      >
-    </p>
-    <p class="p2"><span class="s1"></span><br /></p>
-    <p class="p1">
-      <span class="s1"
-        >&lt;body onload="showHideShots()"&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-converted-space"
-          > <span class="Apple-tab-span"> </span></span
-        >&lt;form id="userinput" class="" action="javascript:void(0);"&gt;</span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span> &lt;input type="radio" id="rps"
-        name="game" checked="checked" value="rps"
-        onclick="showHideShots()"&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;label for="rps"&gt;Play rock,
-        paper, scissors?&lt;/label&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;br /&gt;&lt;br /&gt;</span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span> &lt;input type="radio" id="rpsls"
-        name="game" value="rpsls" onclick="showHideShots()"&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;label for="rpsls"&gt;Play
-        rock, paper, scissors, lizard, Spock?&lt;/label&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;br /&gt;&lt;br /&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;input type="checkbox"
-        id="opponent" name="playtype" value="opponent"
-        onclick="showHideShots()"&gt;</span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span> &lt;label for="opponent"&gt;Play
-        against an opponent?&lt;/label&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;br /&gt;&lt;br /&gt;</span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span> &lt;input type="radio" id="rock"
-        name="player" value="rock" class="rps"&gt;</span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>
-        &lt;label&gt;Rock&lt;/label&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;input type="radio" id="paper"
-        name="player" value="paper" class="rps"&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span
-        >&lt;label&gt;Paper&lt;/label&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;input type="radio"
-        id="scissors" name="player" value="scissors" class="rps"&gt;</span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>
-        &lt;label&gt;Scissors&lt;/label&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;input type="radio"
-        id="lizzard" name="player" value="lizard" class="rpsls"&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;label class="rpsls
-        hidden"&gt;Lizard&lt;/label&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;input type="radio" id="spock"
-        name="player" value="spock" class="rpsls"&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;label class="rpsls
-        hidden"&gt;Spock&lt;/label&gt;<span class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;br /&gt;&lt;br /&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span>&lt;input type="submit" id="play"
-        name="controls" value="Play"&gt;</span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span
-        ><span class="Apple-tab-span"> </span> &lt;input type="submit"
-        id="startover" name="controls" value="Start Over"&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        ><span class="Apple-tab-span"> </span>&lt;/form&gt;<span
-          class="Apple-converted-space"
-          > </span
-        ></span
-      >
-    </p>
-    <p class="p1">
-      <span class="s1"
-        >&lt;/body&gt;<span class="Apple-converted-space"> </span></span
-      >
-    </p>
-    <p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+    <header>
+      <h1>Rock-Paper-Scissors-Lizard-Spock</h1>
+    </header>
+
+    <main>
+      <section id="game-options">
+        <h2>Choose Your Game</h2>
+        <button id="rps">Rock-Paper-Scissors</button>
+        <button id="rpsls">Rock-Paper-Scissors-Lizard-Spock</button>
+      </section>
+
+      <section id="play-mode">
+        <h2>Choose Your Opponent</h2>
+        <label>
+          <input type="radio" name="opponent" value="computer" /> Play Computer
+        </label>
+        <label>
+          <input type="radio" name="opponent" value="random" /> Random Draw
+        </label>
+      </section>
+
+      <section id="player-choice">
+        <h2>Choose Your Move</h2>
+        <div id="moves">
+          <button id="rock">Rock</button>
+          <button id="paper">Paper</button>
+          <button id="scissors">Scissors</button>
+          <button id="lizard">Lizard</button>
+          <button id="spock">Spock</button>
+        </div>
+      </section>
+
+      <section id="game-result">
+        <h2>Results</h2>
+        <div id="result-display">
+          <p id="player-move">Your move: <span></span></p>
+          <p id="computer-move">Computer's move: <span></span></p>
+          <p id="outcome">Outcome: <span></span></p>
+        </div>
+        <button id="reset">Play Again</button>
+      </section>
+    </main>
+
+    <footer>
+      <section id="rules">
+        <h2>Rules of the Game</h2>
+        <p>
+          Learn how to play Rock-Paper-Scissors-Lizard-Spock.
+          <a href="url-to-rules">Read the rules.</a>
+        </p>
+      </section>
+    </footer>
+
+    <script src="scripts.js"></script>
   </body>
 </html>
