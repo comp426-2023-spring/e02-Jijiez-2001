@@ -1,62 +1,58 @@
+<!--
+ * @Descripttion: ZJJ Code
+ * @version: 1.0.0
+ * @Author: ZJJ
+ * @Date: 2023-05-09 16:18:15
+ * @LastEditors: ZJJ
+ * @LastEditTime: 2023-11-26 19:30:52
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock-Paper-Scissors Game</title>
+    <title>RPSLS Game</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
     <header>
       <h1>Rock-Paper-Scissors-Lizard-Spock</h1>
     </header>
 
-    <main>
-      <section id="game-options">
-        <h2>Choose Your Game</h2>
-        <button id="rps">Rock-Paper-Scissors</button>
-        <button id="rpsls">Rock-Paper-Scissors-Lizard-Spock</button>
-      </section>
+    <div id="gameSelection">
+      <h2>Choose Your Game</h2>
+      <input type="radio" id="rps" name="gameType" value="RPS" checked />
+      <label for="rps">Rock-Paper-Scissors</label>
+      <input type="radio" id="rpsls" name="gameType" value="RPSLS" />
+      <label for="rpsls">Rock-Paper-Scissors-Lizard-Spock</label>
+    </div>
 
-      <section id="play-mode">
-        <h2>Choose Your Opponent</h2>
-        <label>
-          <input type="radio" name="opponent" value="computer" /> Play Computer
-        </label>
-        <label>
-          <input type="radio" name="opponent" value="random" /> Random Draw
-        </label>
-      </section>
+    <div id="playOptions">
+      <h2>Play Against Computer</h2>
+      <button class="button" id="playButton">Play</button>
+      <select id="playerChoice">
+        <option value="rock">Rock</option>
+        <option value="paper">Paper</option>
+        <option value="scissors">Scissors</option>
+        <!-- Lizard and Spock options will be added via JavaScript based on game type -->
+      </select>
+    </div>
 
-      <section id="player-choice">
-        <h2>Choose Your Move</h2>
-        <div id="moves">
-          <button id="rock">Rock</button>
-          <button id="paper">Paper</button>
-          <button id="scissors">Scissors</button>
-          <button id="lizard">Lizard</button>
-          <button id="spock">Spock</button>
-        </div>
-      </section>
+    <div id="results">
+      <h2>Results</h2>
+      <p id="playerMove">Your move: <span></span></p>
+      <p id="computerMove">Computer's move: <span></span></p>
+      <p id="outcome">Outcome: <span></span></p>
+    </div>
 
-      <section id="game-result">
-        <h2>Results</h2>
-        <div id="result-display">
-          <p id="player-move">Your move: <span></span></p>
-          <p id="computer-move">Computer's move: <span></span></p>
-          <p id="outcome">Outcome: <span></span></p>
-        </div>
-        <button id="reset">Play Again</button>
-      </section>
-    </main>
+    <button id="resetButton" class="button">Reset</button>
 
     <footer>
       <section id="rules">
         <h2>Rules of the Game</h2>
         <p>
           Learn how to play Rock-Paper-Scissors-Lizard-Spock.
-          <a href="url-to-rules">Read the rules.</a>
+          <a href="rule.html">Read the rules.</a>
         </p>
       </section>
     </footer>
