@@ -11,36 +11,40 @@
       <h1>Rock-Paper-Scissors-Lizard-Spock</h1>
     </header>
 
-    <div id="gameSelection">
-      <h2>Choose Your Game</h2>
-      <input type="radio" id="rps" name="gameType" value="RPS" checked />
-      <label for="rps">Rock-Paper-Scissors</label>
-      <input type="radio" id="rpsls" name="gameType" value="RPSLS" />
-      <label for="rpsls">Rock-Paper-Scissors-Lizard-Spock</label>
-    </div>
+    <form id="gameForm">
+      <section>
+        <input type="radio" id="rps" name="gameMode" value="rps" />
+        <label for="rps">Play Rock, Paper, Scissors</label>
+        <input type="radio" id="rpsls" name="gameMode" value="rpsls" />
+        <label for="rpsls">Play Rock, Paper, Scissors, Lizard, Spock</label>
+      </section>
+      <section id="playOptions" class="hidden">
+        <input type="radio" id="randomPlay" name="playType" value="random" />
+        <label for="randomPlay">Random Draw</label>
+        <input
+          type="radio"
+          id="opponentPlay"
+          name="playType"
+          value="opponent"
+        />
+        <label for="opponentPlay">Play Against Opponent</label>
+      </section>
 
-    <div id="playOptions">
-      <h2>Play Against Computer</h2>
-      <button class="button" id="playButton">Play</button>
-      <select id="playerChoice">
-        <option value="rock">Rock</option>
-        <option value="paper">Paper</option>
-        <option value="scissors">Scissors</option>
-        <!-- Lizard and Spock options will be added via JavaScript based on game type -->
-      </select>
-    </div>
+      <section id="moveOptions" class="hidden">
+        <input type="radio" id="rock" name="moveOptions" value="rock" />
+        <label for="rock">Rock</label>
+        <input type="radio" id="paper" name="moveOptions" value="paper" />
+        <label for="paper">Paper</label>
+        <input type="radio" id="scissors" name="moveOptions" value="scissors" />
+        <label for="scissors">Scissors</label>
+        <!-- Placeholder for Lizard and Spock -->
+        <div id="extraOptions"></div>
+      </section>
 
-    <div id="results">
-      <h2>Results</h2>
-      <p id="playerMove">Your move: <span></span></p>
-      <p id="computerMove">Computer's move: <span></span></p>
-      <p id="outcome">Outcome: <span></span></p>
-    </div>
-
-    <div>
-      <button id="resetButton" class="button">Reset</button>
-    </div>
-    <br />
+      <div id="result"></div>
+      <button type="button" id="playGame">Play</button>
+      <button type="reset" id="reset">Reset</button>
+    </form>
 
     <footer>
       <section id="rules">

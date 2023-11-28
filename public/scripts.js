@@ -1,84 +1,106 @@
+/*
+ * @Descripttion: ZJJ Code
+ * @version: 1.0.0
+ * @Author: ZJJ
+ * @Date: 2023-05-09 17:18:15
+ * @LastEditors: ZJJ
+ * @LastEditTime: 2023-11-27 20:07:12
+ */
 // If you would like to see some examples of similar code to make an interface interact with an API,
 // check out the coin-server example from a previous COMP 426 semester.
 // https://github.com/jdmar3/coinserver
 
-// This function will be called to update the available moves based on the selected game type
-function updateMoveOptions() {
-  const gameType = getSelectedGameType();
-  const playerChoiceElement = document.getElementById("playerChoice");
-  if (gameType === "RPSLS") {
-    if (
-      !Array.from(playerChoiceElement.options).some(
-        (option) => option.value === "lizard"
-      )
-    ) {
-      playerChoiceElement.add(new Option("Lizard", "lizard"));
-      playerChoiceElement.add(new Option("Spock", "spock"));
+//gameForm -> input
+const gameForm = document.getElementById("gameForm");
+
+gameForm.addEventListener("input", (event) => {
+  const gameMode = document.querySelector(
+    'input[name="gameMode"]:checked'
+  )?.value;
+  const playType = document.querySelector(
+    'input[name="playType"]:checked'
+  )?.value;
+
+  if (gameMode) {
+    document.getElementById("playOptions").classList.remove("hidden");
+  }
+
+  const moveOptions = document.getElementById("moveOptions");
+  if (playType === "opponent") {
+    moveOptions.classList.remove("hidden");
+    // Dynamically add/remove Lizard and Spock based on game mode
+    if (gameMode === "rpsls") {
+      // Dynamically add Lizard and Spock options
+      extraOptions.innerHTML = `
+        <input type="radio" id="lizard" name="moveOptions" value="lizard" />
+        <label for="lizard">Lizard</label>
+        <input type="radio" id="spock" name="moveOptions" value="spock" />
+        <label for="spock">Spock</label>
+      `;
+    } else {
+      // Remove Lizard and Spock options here
+      document.getElementById("moveOptions").classList.add("hidden");
     }
   } else {
-    removeOption(playerChoiceElement, "lizard");
-    removeOption(playerChoiceElement, "spock");
+    moveOptions.classList.add("hidden");
   }
-}
+});
 
-// Helper function to remove an option from a select element
-function removeOption(selectElement, value) {
-  Array.from(selectElement.options).forEach((option) => {
-    if (option.value === value) {
-      selectElement.remove(option.index);
-    }
-  });
-}
+//playGame
+const playButton = document.getElementById("playGame");
+playButton.addEventListener("click", playGame);
 
-// Fetch the result of the game from the server
-function fetchGameResult(gameType, playerChoice) {
-  const url = `/api/${gameType}/play`;
-  return fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ choice: playerChoice }),
-  }).then((response) => response.json());
-}
-
-// Function to handle game play
 function playGame() {
-  const gameType = getSelectedGameType();
-  const playerChoice = getPlayerChoice();
-  fetchGameResult(gameType, playerChoice)
+  const gameMode = document.querySelector(
+    'input[name="gameMode"]:checked'
+  )?.value;
+  const playType = document.querySelector(
+    'input[name="playType"]:checked'
+  )?.value;
+  let endpoint;
+
+  if (!gameMode) {
+    alert("Please select a game mode.");
+    return;
+  }
+
+  if (!playType) {
+    alert("Please select your play type.");
+  }
+
+  if (playType === "opponent") {
+    playerChoice = document.querySelector(
+      'input[name="moveOptions"]:checked'
+    )?.value;
+    if (!playerChoice) {
+      alert("Please select your move.");
+      return;
+    }
+  }
+
+  if (playType === "random") {
+    endpoint = `/app/${gameMode}/`;
+  } else {
+    endpoint = `/app/${gameMode}/play/${playerChoice}`;
+  }
+
+  fetch(endpoint, {
+    method: "GET", // or 'POST' if your API requires it
+  })
+    .then((response) => response.json())
     .then((data) => {
-      updateResultsUI(data);
+      // Update UI with the game result
+      document.getElementById(
+        "result"
+      ).innerText = `Your choice: ${data.player}\nOpponent's choice: ${data.opponent}\nResult: ${data.result}`;
     })
     .catch((error) => {
-      console.error("Error playing the game:", error);
+      console.error("Error:", error);
     });
 }
-
-// Function to reset the UI
-function resetUI() {
-  document.getElementById("results").style.display = "none";
-}
-
-// Function to update the UI with the game results
-function updateResultsUI(data) {
-  document.getElementById(
-    "playerMove"
-  ).textContent = `Your move: ${data.playerMove}`;
-  document.getElementById(
-    "computerMove"
-  ).textContent = `Computer's move: ${data.computerMove}`;
-  document.getElementById("outcome").textContent = `Outcome: ${data.outcome}`;
-  document.getElementById("results").style.display = "block";
-}
-
-// Add event listeners once the DOM content is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("rps").addEventListener("change", updateMoveOptions);
-  document
-    .getElementById("rpsls")
-    .addEventListener("change", updateMoveOptions);
-  document.getElementById("playButton").addEventListener("click", playGame);
-  document.getElementById("resetButton").addEventListener("click", resetUI);
-
-  // Initially set the move options based on the default selected game type
-  updateMoveOptions();
+//test
+//gameForm reset
+gameForm.addEventListener("reset", () => {
+  document.getElementById("playOptions").classList.add("hidden");
+  document.getElementById("moveOptions").classList.add("hidden");
 });
