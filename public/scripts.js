@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-05-09 17:18:15
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-11-27 20:07:12
+ * @LastEditTime: 2023-11-29 23:03:03
  */
 // If you would like to see some examples of similar code to make an interface interact with an API,
 // check out the coin-server example from a previous COMP 426 semester.
@@ -20,7 +20,7 @@ gameForm.addEventListener("input", (event) => {
   const playType = document.querySelector(
     'input[name="playType"]:checked'
   )?.value;
-
+  //test
   if (gameMode) {
     document.getElementById("playOptions").classList.remove("hidden");
   }
