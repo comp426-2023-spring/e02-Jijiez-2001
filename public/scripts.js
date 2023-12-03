@@ -1,11 +1,3 @@
-/*
- * @Descripttion: ZJJ Code
- * @version: 1.0.0
- * @Author: ZJJ
- * @Date: 2023-05-09 17:18:15
- * @LastEditors: ZJJ
- * @LastEditTime: 2023-11-29 23:03:03
- */
 // If you would like to see some examples of similar code to make an interface interact with an API,
 // check out the coin-server example from a previous COMP 426 semester.
 // https://github.com/jdmar3/coinserver
@@ -17,9 +9,11 @@ gameForm.addEventListener("input", (event) => {
   const gameMode = document.querySelector(
     'input[name="gameMode"]:checked'
   )?.value;
+  console.log(gameMode);
   const playType = document.querySelector(
     'input[name="playType"]:checked'
   )?.value;
+  console.log(playType);
   //test
   if (gameMode) {
     document.getElementById("playOptions").classList.remove("hidden");
@@ -51,13 +45,16 @@ const playButton = document.getElementById("playGame");
 playButton.addEventListener("click", playGame);
 
 function playGame() {
+  console.log(111);
   const gameMode = document.querySelector(
     'input[name="gameMode"]:checked'
   )?.value;
+  console.log(gameMode);
   const playType = document.querySelector(
     'input[name="playType"]:checked'
   )?.value;
-  let endpoint;
+  console.log(playType);
+  let endpoint = document.baseURI;
 
   if (!gameMode) {
     alert("Please select a game mode.");
@@ -72,6 +69,7 @@ function playGame() {
     playerChoice = document.querySelector(
       'input[name="moveOptions"]:checked'
     )?.value;
+    console.log(playerChoice);
     if (!playerChoice) {
       alert("Please select your move.");
       return;
@@ -79,10 +77,12 @@ function playGame() {
   }
 
   if (playType === "random") {
-    endpoint = `/app/${gameMode}/`;
+    endpoint += `/app/${gameMode}/`;
   } else {
-    endpoint = `/app/${gameMode}/play/${playerChoice}`;
+    endpoint += `/app/${gameMode}/play/${playerChoice}`;
   }
+
+  console.log(endpoint);
 
   fetch(endpoint, {
     method: "GET", // or 'POST' if your API requires it

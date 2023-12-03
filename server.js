@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // Load most basic dependencies
 // Create require function
 // https://nodejs.org/docs/latest-v18.x/api/module.html#modulecreaterequirefilename
@@ -80,6 +78,7 @@ const app = express();
 const port = args.port || args.p || process.env.PORT || 8080;
 
 // Load app middleware here to serve routes, accept data requests, etc.
+//
 // Create and update access log
 // The morgan format below is the Apache Foundation combined format but with ISO8601 dates
 
@@ -122,17 +121,22 @@ process.on("SIGINT", () => {
   let stoppinglog =
     new Date().toISOString() +
     " SIGINT signal received: stopping HTTP server\n";
+
   //  Log SIGINT to file
   fs.appendFileSync(path.join(logpath, "server.log"), stoppinglog);
+
   // Debug echo SIGINT log entry to STDOUT
   if (args.debug) {
     console.info("\n" + stoppinglog);
   }
+
   // Create a log entry on stop
   server.close(() => {
     let stoppedlog = new Date().toISOString() + " HTTP server stopped\n";
+
     // Log server stop to file
     fs.appendFileSync(path.join(logpath, "server.log"), stoppedlog);
+
     // Debug echo stop log entry to STDOUT
     if (args.debug) {
       console.info("\n" + stoppedlog);
@@ -140,6 +144,7 @@ process.on("SIGINT", () => {
   });
 });
 
+/** A04 server */
 import { rps, rpsls } from "./lib/rpsls.js";
 
 app.use(express.json());
