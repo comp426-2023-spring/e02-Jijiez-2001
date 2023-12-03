@@ -32,5 +32,8 @@
     "minimist": "^1.2.8",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "html-validate": "^7.16.0"
   }
 }
