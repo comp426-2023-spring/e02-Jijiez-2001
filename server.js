@@ -73,6 +73,8 @@ if (args.debug) {
 
 // Create an app server
 const app = express();
+const cors = require("cors");
+app.use(cors());
 
 // Set a port for the server to listen on
 const port = args.port || args.p || process.env.PORT || 8080;

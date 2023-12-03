@@ -2,9 +2,9 @@
 // check out the coin-server example from a previous COMP 426 semester.
 // https://github.com/jdmar3/coinserver
 
-//gameForm -> input
 const gameForm = document.getElementById("gameForm");
 
+//gameForm -> input
 gameForm.addEventListener("input", (event) => {
   const gameMode = document.querySelector(
     'input[name="gameMode"]:checked'
@@ -14,29 +14,16 @@ gameForm.addEventListener("input", (event) => {
     'input[name="playType"]:checked'
   )?.value;
   console.log(playType);
-  //test
+
   if (gameMode) {
     document.getElementById("playOptions").classList.remove("hidden");
   }
 
-  const moveOptions = document.getElementById("moveOptions");
-  if (playType === "opponent") {
-    moveOptions.classList.remove("hidden");
-    // Dynamically add/remove Lizard and Spock based on game mode
-    if (gameMode === "rpsls") {
-      // Dynamically add Lizard and Spock options
-      extraOptions.innerHTML = `
-        <input type="radio" id="lizard" name="moveOptions" value="lizard" />
-        <label for="lizard">Lizard</label>
-        <input type="radio" id="spock" name="moveOptions" value="spock" />
-        <label for="spock">Spock</label>
-      `;
-    } else {
-      // Remove Lizard and Spock options here
-      document.getElementById("moveOptions").classList.add("hidden");
-    }
-  } else {
-    moveOptions.classList.add("hidden");
+  const extraOptions = document.getElementById("extraOptions");
+
+  if (playType === "opponent" && gameMode === "rpsls") {
+    // Dynamically add Lizard and Spock options
+    extraOptions.classList.remove("hidden");
   }
 });
 
@@ -54,7 +41,7 @@ function playGame() {
     'input[name="playType"]:checked'
   )?.value;
   console.log(playType);
-  let endpoint = document.baseURI;
+  let endpoint = "http://localhost:5000/";
 
   if (!gameMode) {
     alert("Please select a game mode.");
@@ -69,7 +56,6 @@ function playGame() {
     playerChoice = document.querySelector(
       'input[name="moveOptions"]:checked'
     )?.value;
-    console.log(playerChoice);
     if (!playerChoice) {
       alert("Please select your move.");
       return;
@@ -77,30 +63,44 @@ function playGame() {
   }
 
   if (playType === "random") {
-    endpoint += `/app/${gameMode}/`;
-  } else {
-    endpoint += `/app/${gameMode}/play/${playerChoice}`;
-  }
-
-  console.log(endpoint);
-
-  fetch(endpoint, {
-    method: "GET", // or 'POST' if your API requires it
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Update UI with the game result
-      document.getElementById(
-        "result"
-      ).innerText = `Your choice: ${data.player}\nOpponent's choice: ${data.opponent}\nResult: ${data.result}`;
+    endpoint += `app/${gameMode}/`;
+    fetch(endpoint, {
+      method: "GET",
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        // Update UI with the game result
+        document.getElementById(
+          "result"
+        ).innerText = `Your choice: ${data.player}\n`;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  } else {
+    endpoint += `app/${gameMode}/play/${playerChoice}`;
+    fetch(endpoint, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Update UI with the game result
+        document.getElementById(
+          "result"
+        ).innerText = `Your choice: ${data.player}\nOpponent's choice: ${data.opponent}\nResult: ${data.result}`;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
 }
-//test
+
 //gameForm reset
 gameForm.addEventListener("reset", () => {
-  document.getElementById("playOptions").classList.add("hidden");
-  document.getElementById("moveOptions").classList.add("hidden");
+  // Clear the result text
+  document.getElementById("result").innerText = "";
+
+  // If you have extra options dynamically added, you can clear them as well
+  const extraOptions = document.getElementById("extraOptions");
+  extraOptions.classList.add("hidden");
 });

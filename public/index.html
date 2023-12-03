@@ -18,7 +18,7 @@
         <input type="radio" id="rpsls" name="gameMode" value="rpsls" />
         <label for="rpsls">Play Rock, Paper, Scissors, Lizard, Spock</label>
       </section>
-      <section id="playOptions" class="hidden">
+      <section id="playOptions">
         <input type="radio" id="randomPlay" name="playType" value="random" />
         <label for="randomPlay">Random Draw</label>
         <input
@@ -30,15 +30,20 @@
         <label for="opponentPlay">Play Against Opponent</label>
       </section>
 
-      <section id="moveOptions" class="hidden">
+      <section id="moveOptions">
         <input type="radio" id="rock" name="moveOptions" value="rock" />
         <label for="rock">Rock</label>
         <input type="radio" id="paper" name="moveOptions" value="paper" />
         <label for="paper">Paper</label>
         <input type="radio" id="scissors" name="moveOptions" value="scissors" />
         <label for="scissors">Scissors</label>
-        <!-- Placeholder for Lizard and Spock -->
-        <div id="extraOptions"></div>
+        <!-- Lizard and Spock, initially hidden -->
+        <div id="extraOptions" class="hidden">
+          <input type="radio" id="lizard" name="moveOptions" value="lizard" />
+          <label for="lizard">Lizard</label>
+          <input type="radio" id="spock" name="moveOptions" value="spock" />
+          <label for="spock">Spock</label>
+        </div>
       </section>
 
       <div id="result"></div>
