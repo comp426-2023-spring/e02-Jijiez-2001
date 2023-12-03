@@ -87,7 +87,7 @@ function playGame() {
         // Update UI with the game result
         document.getElementById(
           "result"
-        ).innerText = `Your choice: ${data.player}\nOpponent's choice: ${data.opponent}\nResult: ${data.result}`;
+        ).innerText = `Your choice: ${data.player}\nOpponent's choice: ${data.opponent}\nResult: ${data.result}\n`;
       })
       .catch((error) => {
         console.error("Error:", error);
