@@ -14,14 +14,14 @@
     </header>
 
     <form id="gameForm">
-      <section>
+      <div>
         <input type="radio" id="rps" name="gameMode" value="rps" />
         <label for="rps">Play Rock, Paper, Scissors</label>
         <input type="radio" id="rpsls" name="gameMode" value="rpsls" />
         <label for="rpsls">Play Rock, Paper, Scissors, Lizard, Spock</label>
-      </section>
+      </div>
 
-      <section id="playOptions">
+      <div id="playOptions">
         <input type="radio" id="randomPlay" name="playType" value="random" />
         <label for="randomPlay">Random Draw</label>
         <input
@@ -31,9 +31,9 @@
           value="opponent"
         />
         <label for="opponentPlay">Play Against Opponent</label>
-      </section>
+      </div>
 
-      <section id="moveOptions">
+      <div id="moveOptions">
         <input type="radio" id="rock" name="moveOptions" value="rock" />
         <label for="rock">Rock</label>
         <input type="radio" id="paper" name="moveOptions" value="paper" />
@@ -47,7 +47,7 @@
           <input type="radio" id="spock" name="moveOptions" value="spock" />
           <label for="spock">Spock</label>
         </div>
-      </section>
+      </div>
 
       <div id="result"></div>
       <button type="button" id="playGame">Play</button>
@@ -55,13 +55,13 @@
     </form>
 
     <footer>
-      <section id="rules">
+      <div id="rules">
         <h2>Rules of the Game</h2>
         <p>
           Learn how to play Rock-Paper-Scissors-Lizard-Spock.
           <a href="rule.html">Read the rules.</a>
         </p>
-      </section>
+      </div>
     </footer>
 
     <script src="scripts.js"></script>
