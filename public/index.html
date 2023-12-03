@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>RPSLS Game</title>
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header>
@@ -15,36 +15,36 @@
 
     <form id="gameForm">
       <div>
-        <input type="radio" id="rps" name="gameMode" value="rps" />
+        <input type="radio" id="rps" name="gameMode" value="rps">
         <label for="rps">Play Rock, Paper, Scissors</label>
-        <input type="radio" id="rpsls" name="gameMode" value="rpsls" />
+        <input type="radio" id="rpsls" name="gameMode" value="rpsls">
         <label for="rpsls">Play Rock, Paper, Scissors, Lizard, Spock</label>
       </div>
 
       <div id="playOptions">
-        <input type="radio" id="randomPlay" name="playType" value="random" />
+        <input type="radio" id="randomPlay" name="playType" value="random">
         <label for="randomPlay">Random Draw</label>
         <input
           type="radio"
           id="opponentPlay"
           name="playType"
           value="opponent"
-        />
+        >
         <label for="opponentPlay">Play Against Opponent</label>
       </div>
 
       <div id="moveOptions">
-        <input type="radio" id="rock" name="moveOptions" value="rock" />
+        <input type="radio" id="rock" name="moveOptions" value="rock">
         <label for="rock">Rock</label>
-        <input type="radio" id="paper" name="moveOptions" value="paper" />
+        <input type="radio" id="paper" name="moveOptions" value="paper">
         <label for="paper">Paper</label>
-        <input type="radio" id="scissors" name="moveOptions" value="scissors" />
+        <input type="radio" id="scissors" name="moveOptions" value="scissors">
         <label for="scissors">Scissors</label>
         <!-- Lizard and Spock, initially hidden -->
         <div id="extraOptions" class="hidden">
-          <input type="radio" id="lizard" name="moveOptions" value="lizard" />
+          <input type="radio" id="lizard" name="moveOptions" value="lizard">
           <label for="lizard">Lizard</label>
-          <input type="radio" id="spock" name="moveOptions" value="spock" />
+          <input type="radio" id="spock" name="moveOptions" value="spock">
           <label for="spock">Spock</label>
         </div>
       </div>
